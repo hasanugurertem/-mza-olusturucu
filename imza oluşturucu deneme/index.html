@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>E-posta İmzası Tasarlayıcı</title>
+
+</head>
+<body>
+    <div class="container">
+        <h2>E-posta İmzası Tasarlayıcı</h2>
+        <form id="signature-form">
+            <div class="form-group">
+                <label for="name">Adınız Soyadınız:</label>
+                <input type="text" id="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Ünvanınız:</label>
+                <input type="text" id="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Telefon:</label>
+                <input type="text" id="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-posta:</label>
+                <input type="email" id="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="website">Web Sitesi:</label>
+                <input type="url" id="website" required>
+            </div>
+
+            <div class="social-media-group">
+                <label>Sosyal Medya Hesapları:</label>
+                <div>
+                    <label for="instagram">Instagram:</label>
+                    <input type="url" id="instagram" required>
+                </div>
+                <div>
+                    <label for="twitter">Twitter:</label>
+                    <input type="url" id="twitter" required>
+                </div>
+                <div>
+                    <label for="youtube">YouTube:</label>
+                    <input type="url" id="youtube" required>
+                </div>
+                <div>
+                    <label for="facebook">Facebook:</label>
+                    <input type="url" id="facebook" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">İmza Oluştur</button>
+        </form>
+
+        <div id="output" style="display: none;"></div>
+    </div>
+<head>  
+      <style>
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f1f1f1;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"] {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .social-media-group {
+        margin-top: 10px;
+    }
+
+    .social-media-group label {
+        font-weight: normal;
+    }
+
+    .btn-submit {
+        padding: 10px 20px;
+        background-color: #1e88e5;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+</style>
+</head>
+    <script>
+        document.getElementById('signature-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var name = document.getElementById('name').value;
+            var title = document.getElementById('title').value;
+            var phone = document.getElementById('phone').value;
+            var email = document.getElementById('email').value;
+            var website = document.getElementById('website').value;
+            var instagram = document.getElementById('instagram').value;
+            var twitter = document.getElementById('twitter').value;
+            var youtube = document.getElementById('youtube').value;
+            var facebook = document.getElementById('facebook').value;
+
+            var output = document.getElementById('output');
+            output.style.display = 'block';
+            output.innerHTML = `
+                <p>Adınız Soyadınız: ${name}</p>
+                <p>Ünvanınız: ${title}</p>
+                <p>Telefon: ${phone}</p>
+                <p>E-posta: ${email}</p>
+                <p>Web Sitesi: <a href="${website}">${website}</a></p>
+                <p>Sosyal Medya Hesapları:</p>
+                <ul>
+                    <li><a href="${instagram}">Instagram</a></li>
+                    <li><a href="${twitter}">Twitter</a></li>
+                    <li><a href="${youtube}">YouTube</a></li>
+                    <li><a href="${facebook}">Facebook</a></li>
+                </ul>
+            `;
+        });
+    </script>
+</body>
+</html>
